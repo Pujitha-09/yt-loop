@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://spinfinity.vercel.app/" />
+  <meta name="description" content="Loop YouTube video online - paste a YouTube link and repeat the video endlessly. No login. No sign-in. Free, fast, and private." />
+  <title>Loop YouTube Video Online | Repeat YouTube Forever</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      margin: 5vh auto;
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #ff416c;
+      background: linear-gradient(to right, #ff4b2b, #ff416c);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(255, 65, 108, 0.4);
+    }
+
+    #videoContainer {
+      margin-top: 2rem;
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+  </style>
+
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="spinfinity.png">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Spinfinity 🔁</h1>
+    <p>Loop your favorite YouTube videos forever with just one click. No ads, no sign-in, no limits.</p>
+
+    <input type="text" id="youtubeUrl" placeholder="Paste your YouTube video URL here..." />
+    <button onclick="loopVideo()">Start Loop</button>
+
+    <div id="videoContainer">
+      <h2>Your Looped Video</h2>
+      <iframe id="videoFrame" allow="autoplay"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function loopVideo() {
+      const input = document.getElementById("youtubeUrl").value.trim();
+      const videoId = getYouTubeVideoID(input);
+      const videoContainer = document.getElementById("videoContainer");
+      const frame = document.getElementById("videoFrame");
+
+      if (videoId) {
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+        frame.src = embedUrl;
+        videoContainer.style.display = "block";
+      } else {
+        alert("Please enter a valid YouTube video URL.");
+        videoContainer.style.display = "none";
+      }
+    }
+
+    function getYouTubeVideoID(url) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.hostname === 'youtu.be') {
+          return parsed.pathname.slice(1);
+        } else if (parsed.hostname.includes('youtube.com')) {
+          return parsed.searchParams.get('v');
+        }
+        return null;
+      } catch (e) {
+        return null;
+      }
+    }
+  </script>
+
+  <footer style="margin-top: 50px; text-align: center; font-size: 0.9rem; color: #888;">
+  <p><a href="/how-to-loop-youtube-video.html">How to Loop YouTube Video</a>  
+     <a href="/sitemap.xml">Sitemap</a> 
+     <a href="/robots.txt">Robots</a></p>
+  </footer>
+</body>
+</html>
