@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://spinfinity-psi.vercel.app/</loc>
+    <loc>https://yt-loop.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://spinfinity-psi.vercel.app/how-to-loop-youtube-video.html</loc>
+    <loc>https://yt-loop.vercel.app/how-to-loop-youtube-video.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://spinfinity-psi.vercel.app/sitemap.xml</loc>
+    <loc>https://yt-loop.vercel.app/sitemap.xml</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://spinfinity-psi.vercel.app/robots.txt</loc>
+    <loc>https://yt-loop.vercel.app/robots.txt</loc>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>

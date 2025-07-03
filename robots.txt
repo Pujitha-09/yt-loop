@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spinfinity-psi.vercel.app/sitemap.xml
+Sitemap: https://yt-loop.vercel.app/sitemap.xml
