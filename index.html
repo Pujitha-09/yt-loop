@@ -17,14 +17,18 @@
       min-height: 100vh;
     }
 
-    body {
+    *, *::before, *::after {
+  box-sizing: border-box;
+    }
+
+  body {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .container {
-      width: 90%;
+      width: 100%;
       max-width: 600px;
       background: rgba(255, 255, 255, 0.1);
       padding: 2rem;
