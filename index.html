@@ -99,19 +99,15 @@
 <meta name="google-site-verification" content="ofLgMnLZSs5yf7BYtgI96Zh-uJ5iA6XQp0touhqJieQ" />
 
 </head>
-<body>
-  <div class="container">
-    <h1>Welcome to Spinfinity 🔁</h1>
-    <p>Loop your favorite YouTube videos forever with just one click. No ads, no sign-in, no limits.</p>
-
-    <input type="text" id="youtubeUrl" placeholder="Paste your YouTube video URL here..." />
-    <button onclick="loopVideo()">Start Loop</button>
-
-    <div id="videoContainer">
-      <h2>Your Looped Video</h2>
-      <iframe id="videoFrame" allow="autoplay"></iframe>
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+  <main style="flex: 1; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <!-- Your main interface (card with input + button) -->
+    <div style="background: #fff1; padding: 30px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-align: center;">
+      <h1>Welcome to Spinfinity 🔁</h1>
+      <p>Loop your favorite YouTube videos forever with just one click. No ads, no sign-in, no limits.</p>
+      <input type="text" placeholder="Paste your YouTube video URL here..." style="width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px; border: none;">
+      <button style="margin-top: 20px; padding: 12px 25px; border-radius: 30px; background: #ff416c; color: white; font-weight: bold; border: none;">Start Loop</button>
     </div>
-  </div>
 
   <script>
     function loopVideo() {
@@ -145,10 +141,12 @@
     }
   </script>
 
-  <footer style="margin-top: 50px; text-align: center; font-size: 0.9rem; color: #888;">
-  <p><a href="/how-to-loop-youtube-video.html">How to Loop YouTube Video</a> • 
-     <a href="/sitemap.xml">Sitemap</a> • 
-     <a href="/robots.txt">Robots.txt</a></p>
-</footer>
+  <footer style="text-align: center; padding: 20px;">
+    <a href="how-to-loop-youtube-video.html" 
+       style="text-decoration: none; color: #aaa; font-size: 0.95rem;">
+      📘 How to Loop YouTube Video
+    </a>
+  </footer>
+</body>
 </body>
 </html>
