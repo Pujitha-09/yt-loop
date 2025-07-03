@@ -93,24 +93,32 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    .footer-links {
-  margin-top: 2rem;
+  .footer {
+  width: 100%;
   text-align: center;
-  font-size: 0.85rem;
+  margin-top: auto;
+  padding: 1rem 0;
   color: #ccc;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
 }
 
-.footer-links a {
+.footer a {
   color: #ccc;
   text-decoration: none;
-  font-weight: 500;
 }
 
-.footer-links a:hover {
-  color: #fff;
+.footer a:hover {
   text-decoration: underline;
+  color: #fff;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
   </style>
 
   <!-- Favicon -->
@@ -164,10 +172,8 @@
     }
   </script>
 
-  <footer>
-  <div class="footer-links">
-    📘 <a href="/how-to-loop-youtube-video.html">How to Loop YouTube Video</a>
-  </div>
+  <footer class="footer">
+  <a href="/how-to-loop-youtube-video.html">📘 How to Loop YouTube Video</a>
 </footer>
 </body>
 </body>
