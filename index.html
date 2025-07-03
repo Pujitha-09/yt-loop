@@ -119,6 +119,18 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+@media (max-width: 600px) {
+  .container {
+    margin-top: 30px;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding-bottom: 2rem;
+  }
+}
+
   </style>
 
   <!-- Favicon -->
@@ -127,20 +139,19 @@ body {
 
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-  <div class="container">
     <h1>Welcome to Spinfinity 🔁</h1>
     <p>Loop your favorite YouTube videos forever with just one click. No ads, no sign-in, no limits.</p>
-
+    <div>
     <input type="text" id="youtubeUrl" placeholder="Paste your YouTube video URL here..." />
     <button onclick="loopVideo()">Start Loop</button>
-
+    </div>
     <div id="videoContainer">
       <h2>Your Looped Video</h2>
       <iframe id="videoFrame" allow="autoplay"></iframe>
     </div>
-  </div>
+    
 
-  <script>
+<script>
     function loopVideo() {
       const input = document.getElementById("youtubeUrl").value.trim();
       const videoId = getYouTubeVideoID(input);
