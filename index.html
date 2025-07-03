@@ -112,39 +112,59 @@
     <div id="videoContainer">
       <h2>Your Looped Video</h2>
       <iframe id="videoFrame" allow="autoplay"></iframe>
+      <iframe id="videoFrame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 
   <script>
-    function loopVideo() {
-      const input = document.getElementById("youtubeUrl").value.trim();
-      const videoId = getYouTubeVideoID(input);
-      const videoContainer = document.getElementById("videoContainer");
-      const frame = document.getElementById("videoFrame");
+  function loopVideo() {
+  const input = document.getElementById("youtubeUrl").value.trim();
+  const videoId = getYouTubeVideoID(input);
+  const videoContainer = document.getElementById("videoContainer");
+  const frame = document.getElementById("videoFrame");
 
-      if (videoId) {
-        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
-        frame.src = embedUrl;
-        videoContainer.style.display = "block";
-      } else {
-        alert("Please enter a valid YouTube video URL.");
-        videoContainer.style.display = "none";
-      }
-    }
+  console.log("Input URL:", input);
+  console.log("Extracted Video ID:", videoId);
+
+  if (videoId) {
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+    console.log("Embed URL:", embedUrl);
+    frame.src = embedUrl;
+    videoContainer.style.display = "block";
+  } else {
+    alert("Please enter a valid YouTube video URL.");
+    videoContainer.style.display = "none";
+  }
+}
+
 
     function getYouTubeVideoID(url) {
-      try {
-        const parsed = new URL(url);
-        if (parsed.hostname === 'youtu.be') {
-          return parsed.pathname.slice(1);
-        } else if (parsed.hostname.includes('youtube.com')) {
-          return parsed.searchParams.get('v');
-        }
-        return null;
-      } catch (e) {
-        return null;
+  try {
+    const parsed = new URL(url);
+    const hostname = parsed.hostname;
+
+    if (hostname === 'youtu.be') {
+      return parsed.pathname.slice(1);
+    }
+
+    if (hostname.includes('youtube.com')) {
+      const pathname = parsed.pathname;
+
+      if (pathname.startsWith('/watch')) {
+        return parsed.searchParams.get('v');
+      }
+
+      if (pathname.startsWith('/embed/') || pathname.startsWith('/shorts/')) {
+        return pathname.split('/')[2];
       }
     }
+
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
   </script>
 
   <footer style="text-align: center; padding: 20px;">
