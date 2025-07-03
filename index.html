@@ -139,17 +139,23 @@ body {
 
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+
+  <!-- ✅ Move header OUTSIDE the container -->
+  <div style="text-align: center; margin-top: 40px;">
     <h1>Welcome to Spinfinity 🔁</h1>
     <p>Loop your favorite YouTube videos forever with just one click. No ads, no sign-in, no limits.</p>
-    <div>
+  </div>
+
+  <!-- ✅ Keep only input box inside the container -->
+  <div class="container">
     <input type="text" id="youtubeUrl" placeholder="Paste your YouTube video URL here..." />
     <button onclick="loopVideo()">Start Loop</button>
-    </div>
+
     <div id="videoContainer">
       <h2>Your Looped Video</h2>
       <iframe id="videoFrame" allow="autoplay"></iframe>
     </div>
-    
+  </div>
 
 <script>
     function loopVideo() {
